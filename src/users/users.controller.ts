@@ -11,7 +11,7 @@ export class UsersController{
         private readonly authService: AuthService
         ){}
     @UseGuards(AuthGuard('local'))
-    @Post('login')
+    @Post('signin')
     async login(@Request() req){
         return this.authService.login(req.user);
     }
@@ -22,8 +22,20 @@ export class UsersController{
       return this.userService.profile(req.body.id);
     }
 
+    @UseGuards(AuthGuard('jwt'))
+    @Post('changePassword')
+    changePwd(@Request() req) {
+      return this.userService.changePassword(req.body.id,req.body.newPWD);
+    }
+
     
-    @Post('add')
+    @Post('passwordForgotten')
+    passwordForgotten(@Request() req) {
+      return this.userService.passwordForgotten(req.body.email);
+    }
+
+    
+    @Post('signup')
     addUser(@Request() req){
         const user = new UserDTO(req.body.username,req.body.email,req.body.password);
         return this.userService.insertUser(user);

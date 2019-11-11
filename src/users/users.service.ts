@@ -17,13 +17,29 @@ export class UsersService{
   }
 
   async insertUser (userDto : UserDTO){
-    const user = new this.userModel({username :userDto.username,email:userDto.email,password:userDto.password});
-    const result = await user.save();
-    return result._id;
+    const u = await this.userModel.findOne({email: userDto.email});
+    if(!u){
+      const user = new this.userModel({username :userDto.username,email:userDto.email,password:userDto.password});
+      const result = await user.save();
+      return result._id;
+    }
+   
+    return "User Alerady exists";
     
   }
 
-    
+  async changePassword(id: string,new_password: string){
+    const user = await this.userModel.findById(id);
+    user.password = new_password;
+    user.save();
+    return true;
+  }
+
+  async passwordForgotten(email: string){
+
+    return ;
+  }
+
   async profile(id: string): Model<User>{
     return await this.userModel.findById(id);
   }
