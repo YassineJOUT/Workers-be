@@ -8,9 +8,9 @@ import { UsersService } from './users.service';
     name: 'User', schema : UserSchema
 }])*/
 @Module({
-    imports : [],
     controllers : [UsersController],
-    providers : [UsersService]
+    providers : [UsersService],
+    exports : [UsersService]
 })
 
 export class UsersModule{}
