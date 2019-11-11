@@ -1,3 +1,9 @@
+/*
+  * @file-description : User model, provides the user schema and the interface that defines the user properties
+  * @author{Yassine JOUT} yassinejout@gmail.com
+*/
+
+// Import the required modules
 import * as mongoose from 'mongoose';
 
 export const UserSchema = new mongoose.Schema({

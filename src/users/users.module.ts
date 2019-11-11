@@ -1,6 +1,11 @@
+/*
+  * @file-description : this file injects authentication, db logics to the users Module
+  * @author{Yassine JOUT} yassinejout@gmail.com
+*/
+
+// Import the required modules
 import { Module } from '@nestjs/common'
 import { MongooseModule } from '@nestjs/mongoose'
-
 import { UserSchema } from './user.model'
 import { UsersController } from './users.controller';
 import { UsersService } from './users.service';

@@ -1,3 +1,9 @@
+/*
+  * @file-description : auth module -> authentication module that gathers the logic for local and JWT strategies
+  * @author{Yassine JOUT} yassinejout@gmail.com
+*/
+
+// Import the required modules
 import { Module } from '@nestjs/common';
 import { AuthService } from './auth.service';
 import { PassportModule } from '@nestjs/passport';

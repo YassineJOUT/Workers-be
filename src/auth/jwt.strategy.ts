@@ -1,4 +1,9 @@
+/*
+  * @file-description : this file provides validation method for token generation
+  * @author{Yassine JOUT} yassinejout@gmail.com
+*/
 
+// Import the required modules
 import { ExtractJwt, Strategy } from 'passport-jwt';
 import { PassportStrategy } from '@nestjs/passport';
 import { Injectable } from '@nestjs/common';

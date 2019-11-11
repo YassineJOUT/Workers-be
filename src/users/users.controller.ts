@@ -1,3 +1,9 @@
+/*
+  * @file-description : UsersController handles incoming requests for the endpoint users and sends responses
+  * @author{Yassine JOUT} yassinejout@gmail.com
+*/
+
+// Import the required modules
 import { Controller,Post,Get,Request, UseGuards } from '@nestjs/common'
 import { AuthService } from '../auth/auth.service';
 import { AuthGuard } from '@nestjs/passport';

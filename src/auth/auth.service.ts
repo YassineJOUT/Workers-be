@@ -1,3 +1,9 @@
+/*
+  * @file-description : Authentication service provide user validation and JWT token generation
+  * @author{Yassine JOUT} yassinejout@gmail.com
+*/
+
+// Import the required modules
 import { Injectable } from '@nestjs/common';
 import { UsersService } from '../users/users.service';
 import { JwtService } from '@nestjs/jwt';

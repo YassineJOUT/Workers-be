@@ -1,3 +1,9 @@
+/*
+  * @file-description : provides functions that manipulates users
+  * @author{Yassine JOUT} yassinejout@gmail.com
+*/
+
+// Import the required modules
 import {  Injectable } from '@nestjs/common'
 import { User, UserDTO } from './user.model';
 import { InjectModel } from '@nestjs/mongoose';
