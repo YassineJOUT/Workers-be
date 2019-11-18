@@ -19,7 +19,8 @@ export class UsersController{
     @UseGuards(AuthGuard('local'))
     @Post('signin')
     async login(@Request() req){
-        return this.authService.login(req.user);
+        
+        return { status: 'success', data :this.authService.login(req.user)};
     }
 
     @UseGuards(AuthGuard('jwt'))
