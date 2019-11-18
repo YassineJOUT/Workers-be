@@ -13,7 +13,7 @@ import { constants } from './constants';
 import { UsersService } from '../users/users.service';
 import { JwtStrategy } from './jwt.strategy';
 import { MongooseModule } from '@nestjs/mongoose';
-import { UserSchema } from '../users/user.model';
+import { UserSchema } from '../db/schemas/user.schema';
 
 @Module({
   imports: [
