@@ -18,8 +18,11 @@ export class UsersService{
 
   async findUser(email: string): Model<User> {
       const u = await this.userModel.findOne({email});
-      const user = new UserDTO(u.username,u.email,u.password,u._id);
-      return user;
+      if(u !== null){
+          const user = new UserDTO(u.username,u.email,u.password,u._id);
+          return user;
+      }
+      return null;
   }
 
   async insertUser (userDto : UserDTO){

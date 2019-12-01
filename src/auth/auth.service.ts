@@ -28,9 +28,10 @@ export class AuthService {
 
   async login(user) {
     const playload = { email: user.email, sub: user._id };
+    const userD = user;
     return {
-      access_token: this.jwtService.sign(playload)
-
+      access_token: this.jwtService.sign(playload),
+      user: userD
     };
   }
 }
