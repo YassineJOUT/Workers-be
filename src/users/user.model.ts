@@ -9,6 +9,7 @@ export interface User{
     username: string;
     email: string;
     password: string;
+    cconfirmationCode: number;
 }
 
 export class UserDTO{
@@ -16,6 +17,7 @@ export class UserDTO{
     public username: string, 
     public email: string,
     public password: string,
-    public id?: string)
+    public id?: string,
+    public confirmationCode?: number)
     {}
 }

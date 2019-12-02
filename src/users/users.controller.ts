@@ -38,7 +38,8 @@ export class UsersController{
     
     @Post('passwordForgotten')
     passwordForgotten(@Request() req) {
-      return this.userService.passwordForgotten(req.body.email);
+      console.log(req.body);
+      return this.userService.passwordForgotten(req.body.email,req.body.confirmationCode);
     }
 
     

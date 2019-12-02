@@ -1,4 +1,4 @@
-import { createTestAccount, createTransport, getTestMessageUrl } from 'nodemailer';
+import { createTransport, getTestMessageUrl } from 'nodemailer';
 
 // async..await is not allowed in global scope, must use a wrapper
 export const sendMail = async (email: string,confirmationCode: number) => {
@@ -12,7 +12,7 @@ export const sendMail = async (email: string,confirmationCode: number) => {
     secure: true, // true for 465, false for other ports
     auth: {
       user: 'app.workers19@gmail.com', // generated ethereal user
-      pass: 'workers1423' // generated ethereal password
+      pass: '' // generated ethereal password
     }
   });
 
