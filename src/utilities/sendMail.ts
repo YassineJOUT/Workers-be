@@ -7,7 +7,7 @@ let transporter = createTransport({
     secure: true, // true for 465, false for other ports
     auth: {
       user: 'app.workers19@gmail.com', // generated ethereal user
-      pass: 'workers1423' // generated ethereal password
+      pass: '' // generated ethereal password
     }
   });
 
