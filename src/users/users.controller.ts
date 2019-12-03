@@ -4,7 +4,7 @@
 */
 
 // Import the required modules
-import { Controller,Post,Get,Request, UseGuards } from '@nestjs/common'
+import { Controller,Post,Get,Request, UseGuards, HttpException, HttpStatus } from '@nestjs/common'
 import { AuthService } from '../auth/auth.service';
 import { AuthGuard } from '@nestjs/passport';
 import { UsersService } from './users.service';
@@ -29,16 +29,27 @@ export class UsersController{
       return this.userService.profile(req.body.id);
     }
 
-    @UseGuards(AuthGuard('jwt'))
-    @Post('changePassword')
+    @Post('resetPassword')
     changePwd(@Request() req) {
-      return this.userService.changePassword(req.body.id,req.body.newPWD);
+      const resultValue = this.userService.changePassword(req.body.email,req.body.confirmationCode,req.body.password);
+      if(resultValue){
+        // send email 
+        return { 
+        status: 'success',
+        message : 'Your password has been changed successfully you can now authenticate'
+      };
+      } 
+      else throw new HttpException({
+        status: HttpStatus.UNAUTHORIZED,
+        error: 'This is a custom message',
+      }, 401);
     }
+
+  
 
     
     @Post('passwordForgotten')
     passwordForgotten(@Request() req) {
-      console.log(req.body);
       return this.userService.passwordForgotten(req.body.email,req.body.confirmationCode);
     }
 
